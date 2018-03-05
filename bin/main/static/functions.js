@@ -5,7 +5,9 @@ function registerSearch() {
         var query = $("#q").val();
         $.get(target, { q: query } )
             .done( function(data) {
-                $("#resultsBlock").empty().append(data);
+                var tweetCard = $('#tweetCard').html();
+				Mustache.parse(tweetCard);
+				$("#resultsBlock").empty().html(Mustache.render(tweetCard, data));
             }).fail(function() {
             $("#resultsBlock").empty();
         });

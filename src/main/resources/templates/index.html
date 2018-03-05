@@ -49,6 +49,22 @@
 
 <script th:src="@{/functions.js}"
         src="../static/functions.js"></script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
 
+<script id="tweetCard" type="text/HTML">
+	{{#tweets}}
+		<div class="card p-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://twitter.com/{{fromUser}}" target="_blank" shape="rect"><span class="fas fa-user"></span><span>{{fromUser}}</span></a>
+                    dice en
+                    <a href="https://twitter.com/{{fromUser}}/status/{{idStr}}" target="_blank" shape="rect"><span class="fab fa-twitter-square"></span><span>{{idStr}}</span></a>
+                </h5>
+                <p class="card-text">{{unmodifiedText}}</p>
+            </div>
+        </div>
+     {{/tweets}}
+</script>
 </body>
 </html>
